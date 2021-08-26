@@ -1,0 +1,17 @@
+#app {
+  text-align: center;
+}
+
+.input-field {
+  max-width: 75vw;
+  margin: 0 auto 4vh auto;
+}
+
+.todoitem {
+  max-width: 75vw;
+  margin: 10px auto;
+}
+
+.clickable {
+  cursor: pointer;
+}
