@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
 import { Container } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import TodoHeader from './TodoHeader';
 import InputField from './InputField';
 import TodoList from './TodoList';
+import style from './App.module.css';
 
 const App = (props) => {
   const { todos, todoname } = props;
@@ -51,24 +53,33 @@ const App = (props) => {
   };
 
   return (
-    <Container fluid>
-      <TodoHeader
-        todoName={todoname}
-        todoCount={currentTodos.filter((todo) => !todo.completed).length}
-      />
-      <InputField
-        value={input}
-        onInputEnter={handleInputEnter}
-        onInputChange={handleInputChange}
-        onInputSubmit={handleInputSubmit}
-      />
-      <TodoList
-        todos={currentTodos}
-        onItemCompleted={handleItemCompleted}
-        onItemDelete={handleItemDelete}
-        onItemUpdate={handleItemUpdate}
-      />
-    </Container>
+    <>
+      <Container fluid>
+        <TodoHeader
+          todoName={todoname}
+          todoCount={currentTodos.filter((todo) => !todo.completed).length}
+        />
+        <InputField
+          value={input}
+          onInputEnter={handleInputEnter}
+          onInputChange={handleInputChange}
+          onInputSubmit={handleInputSubmit}
+        />
+        <TodoList
+          todos={currentTodos}
+          onItemCompleted={handleItemCompleted}
+          onItemDelete={handleItemDelete}
+          onItemUpdate={handleItemUpdate}
+        />
+      </Container>
+      <footer className="position-fixed bottom-0 w-100">
+        <div className={`${style.ReverseRow}`}>
+          <a className={`${style.Link}`} href="https://github.com/Heterosis/To-Do-List-with-React" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={['fab', 'github']} style={{ fontSize: 40 }} />
+          </a>
+        </div>
+      </footer>
+    </>
   );
 };
 
